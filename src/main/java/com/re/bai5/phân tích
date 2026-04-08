@@ -1,0 +1,13 @@
+Khi khai báo @PathVariable("id") int id, Spring sẽ tự động ép kiểu từ chuỗi trên URL sang kiểu int.
+Nếu người dùng nhập /orders/t, quá trình ép kiểu thất bại và ném ra lỗi MethodArgumentTypeMismatchException.
+Việc sử dụng @ExceptionHandler giúp chúng ta chặn đứng lỗi này trước khi nó làm sập giao diện người dùng, thay thế bằng một thông báo tiếng Việt thân thiện
+
+
+
+Phương thức DELETE có tính Idempotent
+Khi nhân viên bấm xóa lần 1, đơn hàng bị xóa. Khi bấm lần 2, 3 (do lag), đơn hàng thực tế đã không còn tồn tại, kết quả cuối cùng vẫn là "không có đơn hàng đó".
+Dữ liệu không bị sai lệch thêm.=
+
+Tại sao POST rủi ro? Phương thức POST không có tính Idempotent.
+Mỗi lần bấm "Lưu", trình duyệt gửi một yêu cầu tạo mới hoàn toàn
+ Nếu bấm 3 lần, hệ thống sẽ thực hiện 3 lệnh INSERT vào database, dẫn đến việc trùng lặp đơn hàng (đơn hàng rác), gây thất thoát và nhầm lẫn cho nhà hàng
