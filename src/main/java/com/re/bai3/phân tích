@@ -1,0 +1,8 @@
+Về vị trí của số 5 trong URL:
+
+Cách A (/bai3/orders/5): Số 5 đóng vai trò là một Path Segment (phân đoạn đường dẫn). Nó biến URL thành một địa chỉ định danh trực tiếp cho tài nguyên.
+
+Cách B (/bai3/orders?id=5): Số 5 là giá trị của một Query Parameter (tham số truy vấn). Nó nằm sau dấu ? và thường được dùng để gửi thêm dữ liệu bổ sung hoặc lọc danh sách.
+
+Lý do: @PathVariable (Cách A) giúp URL thể hiện rõ tính phân cấp và định danh: Tập hợp đơn hàng $\rightarrow$ Đơn hàng số 5.
+Cách này giúp URL ngắn gọn, thân thiện với SEO và đúng bản chất của tài nguyên. @RequestParam (Cách B) thường chỉ nên dùng khi bạn muốn lọc (ví dụ: lấy các đơn hàng có status=pending).
